@@ -160,7 +160,7 @@ extension LibraryViewController: UICollectionViewDelegateFlowLayout {
         } else {
             
             let width = (Int(UIScreen.main.bounds.width) / bookPerRow) - (bookPerRow * 2 * insets)
-            let height = Int(Double(width) * 1.5) // Heigt/width ratio == 1.5
+            let height = Int(Double(width) * 1.5) // Height/width ratio == 1.5
             let titleTextView = UITextView(frame: CGRect(x: 0, y: 0, width: width, height: height))
             
             titleTextView.layer.borderWidth = 5.0
