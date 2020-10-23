@@ -19,84 +19,26 @@ import ReadiumLCP
 
 class LCPLibraryService: DRMLibraryService {
 
-    private var lcpService = R2MakeLCPService()
+    private var lcpService = LCPService()
     
-    /// [LicenseDocument.id: passphrase callback]
-    private var authenticationCallbacks: [String: (String?) -> Void] = [:]
-
-    var brand: DRM.Brand {
-        return .lcp
-    }
+    lazy var contentProtection: ContentProtection = lcpService.contentProtection()
     
     func canFulfill(_ file: URL) -> Bool {
         return file.pathExtension.lowercased() == "lcpl"
     }
     
     func fulfill(_ file: URL, completion: @escaping (CancellableResult<DRMFulfilledPublication>) -> Void) {
-        lcpService.importPublication(from: file, authentication: self) { result, error in
-            if let result = result {
-                let publication = DRMFulfilledPublication(localURL: result.localURL, downloadTask: result.downloadTask, suggestedFilename: result.suggestedFilename)
-                completion(.success(publication))
-            } else if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.cancelled)
+        lcpService.acquirePublication(from: file) { result in
+                switch result {
+                case .success(let publication):
+                    let publication = DRMFulfilledPublication(localURL: publication.localURL, downloadTask: publication.downloadTask, suggestedFilename: publication.suggestedFilename)
+                    completion(.success(publication))
+                case .failure(let error):
+                    completion(.failure(error))
+                case .cancelled:
+                    completion(.cancelled)
+                }
             }
-        }
-    }
-    
-    func loadPublication(at publication: URL, drm: DRM, completion: @escaping (CancellableResult<DRM?>) -> Void) {
-        lcpService.retrieveLicense(from: publication, authentication: self) { license, error in
-            if let license = license {
-                var drm = drm
-                drm.license = license
-                completion(.success(drm))
-            } else if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.cancelled)
-            }
-        }
-    }
-    
-}
-
-extension LCPLibraryService: LCPAuthenticating {
-    
-    func requestPassphrase(for license: LCPAuthenticatedLicense, reason: LCPAuthenticationReason, completion: @escaping (String?) -> Void) {
-        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else {
-            completion(nil)
-            return
-        }
-        
-        authenticationCallbacks[license.document.id] = completion
-        
-        let authenticationVC = LCPAuthenticationViewController(license: license, reason: reason)
-        authenticationVC.delegate = self
-      
-        let navController = UINavigationController(rootViewController: authenticationVC)
-        navController.modalPresentationStyle = .formSheet
-
-        viewController.present(navController, animated: true)
-    }
-
-}
-
-
-extension LCPLibraryService: LCPAuthenticationDelegate {
-    
-    func authenticate(_ license: LCPAuthenticatedLicense, with passphrase: String) {
-        guard let callback = authenticationCallbacks.removeValue(forKey: license.document.id) else {
-            return
-        }
-        callback(passphrase)
-    }
-    
-    func didCancelAuthentication(of license: LCPAuthenticatedLicense) {
-        guard let callback = authenticationCallbacks.removeValue(forKey: license.document.id) else {
-            return
-        }
-        callback(nil)
     }
     
 }

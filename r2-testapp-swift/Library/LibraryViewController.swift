@@ -176,8 +176,8 @@ class LibraryViewController: UIViewController, Loggable {
             }
             
             func addWEBPUB() {
-                if !library.addPublication(at: url) {
-                    retry()
+                library.addPublication(at: url) { success in
+                    if !success { retry() }
                 }
             }
             
@@ -239,9 +239,13 @@ extension LibraryViewController: UIDocumentPickerDelegate {
             return
         }
         
-        for url in urls {
-            library.movePublicationToLibrary(from: url)
+        func importAt(_ index: Int) {
+            guard index < urls.count else { return }
+            library.movePublicationToLibrary(from: urls[index]) { _ in
+                importAt(index + 1)
+            }
         }
+        importAt(0)
     }
     
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
@@ -331,7 +335,7 @@ extension LibraryViewController: UICollectionViewDelegateFlowLayout, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let libraryDelegate = libraryDelegate else {
+        guard let library = library, let libraryDelegate = libraryDelegate else {
             return
         }
         
@@ -345,13 +349,21 @@ extension LibraryViewController: UICollectionViewDelegateFlowLayout, UICollectio
         cell.contentView.addSubview(self.loadingIndicator)
         collectionView.isUserInteractionEnabled = false
         
-        guard let (publication, container) = library.parsePublication(for: book) else {
-            return
-        }
+        library.parsePublication(for: book, allowUserInteraction: true, from: self) { publication in
+            if let publication = publication {
+                if !publication.isRestricted {
+                    library.preparePresentation(of: publication, book: book)
+                    libraryDelegate.libraryDidSelectPublication(publication, book: book)
         
-        library.preparePresentation(of: publication, book: book, with: container)
-
-        libraryDelegate.libraryDidSelectPublication(publication, book: book) {
+                } else if let error = publication.protectionError {
+                    // A status error occurred, for example the publication expired
+                    libraryDelegate.presentError(error, from: self)
+        
+                } else {
+                    // User cancelled the unlocking, for example by dismissing a passphrase dialog.
+                }
+            }
+            
             self.loadingIndicator.removeFromSuperview()
             collectionView.isUserInteractionEnabled = true
         }
@@ -401,12 +413,13 @@ extension LibraryViewController: PublicationCollectionViewCellDelegate {
     
     func displayInformation(forCellAt indexPath: IndexPath) {
         let book = books[indexPath.row]
-        guard let (publication, _) = library.parsePublication(for: book) else {
-            return
+        library.parsePublication(for: book, allowUserInteraction: true, from: self) { publication in
+            if let publication = publication {
+                let detailsViewController = self.factory.make(publication: publication)
+                detailsViewController.modalPresentationStyle = .popover
+                self.navigationController?.pushViewController(detailsViewController, animated: true)
+            }
         }
-        let detailsViewController = factory.make(publication: publication)
-        detailsViewController.modalPresentationStyle = .popover
-        navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     // Used to reset ui of the last flipped cell, we must not have two cells

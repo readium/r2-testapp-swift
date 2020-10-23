@@ -80,19 +80,14 @@ extension AppModule: ModuleDelegate {
 
 extension AppModule: LibraryModuleDelegate {
     
-    func libraryDidSelectPublication(_ publication: Publication, book: Book, completion: @escaping () -> Void) {
-        reader.presentPublication(publication: publication, book: book, in: library.rootViewController, completion: completion)
+    func libraryDidSelectPublication(_ publication: Publication, book: Book) {
+        reader.presentPublication(publication: publication, book: book, in: library.rootViewController)
     }
 
 }
 
 
 extension AppModule: ReaderModuleDelegate {
-    
-    func readerLoadDRM(for book: Book, completion: @escaping (CancellableResult<DRM?>) -> Void) {
-        library.loadDRM(for: book, completion: completion)
-    }
-    
 }
 
 

@@ -22,16 +22,11 @@ protocol ReaderModuleAPI {
     var delegate: ReaderModuleDelegate? { get }
     
     /// Presents the given publication to the user, inside the given navigation controller.
-    /// - Parameter completion: Called once the publication is presented, or if an error occured.
-    func presentPublication(publication: Publication, book: Book, in navigationController: UINavigationController, completion: @escaping () -> Void)
+    func presentPublication(publication: Publication, book: Book, in navigationController: UINavigationController)
     
 }
 
 protocol ReaderModuleDelegate: ModuleDelegate {
-    
-    /// Called when the reader needs to load the R2 DRM object for the given publication.
-    func readerLoadDRM(for book: Book, completion: @escaping (CancellableResult<DRM?>) -> Void)
-    
 }
 
 
@@ -59,11 +54,7 @@ final class ReaderModule: ReaderModuleAPI {
         }
     }
     
-    func presentPublication(publication: Publication, book: Book, in navigationController: UINavigationController, completion: @escaping () -> Void) {
-        guard let delegate = delegate else {
-            fatalError("Reader delegate not set")
-        }
-        
+    func presentPublication(publication: Publication, book: Book, in navigationController: UINavigationController) {
         func present(_ viewController: UIViewController) {
             let backItem = UIBarButtonItem()
             backItem.title = ""
@@ -72,31 +63,16 @@ final class ReaderModule: ReaderModuleAPI {
             navigationController.pushViewController(viewController, animated: true)
         }
         
-        delegate.readerLoadDRM(for: book) { [resourcesServer] result in
-            switch result {
-            case .failure(let error):
-                delegate.presentError(error, from: navigationController)
-                completion()
-                
-            case .success(let drm):
-                guard let module = self.formatModules.first(where:{ $0.publicationFormats.contains(publication.format) }) else {
-                    delegate.presentError(ReaderError.formatNotSupported, from: navigationController)
-                    completion()
-                    return
-                }
-                
-                do {
-                    let readerViewController = try module.makeReaderViewController(for: publication, book: book, drm: drm, resourcesServer: resourcesServer)
-                    present(readerViewController)
-                } catch {
-                    delegate.presentError(error, from: navigationController)
-                }
-                
-                completion()
-                
-            case .cancelled:
-                completion()
-            }
+        guard let module = self.formatModules.first(where:{ $0.publicationFormats.contains(publication.format) }) else {
+            delegate?.presentError(ReaderError.formatNotSupported, from: navigationController)
+            return
+        }
+        
+        do {
+            let readerViewController = try module.makeReaderViewController(for: publication, book: book, resourcesServer: resourcesServer)
+            present(readerViewController)
+        } catch {
+            delegate?.presentError(error, from: navigationController)
         }
     }
     
@@ -105,8 +81,8 @@ final class ReaderModule: ReaderModuleAPI {
 
 extension ReaderModule: ReaderFormatModuleDelegate {
 
-    func presentDRM(_ drm: DRM, from viewController: UIViewController) {
-        let drmViewController: DRMManagementTableViewController = factory.make(drm: drm, delegate: delegate)
+    func presentDRM(of publication: Publication, from viewController: UIViewController) {
+        let drmViewController: DRMManagementTableViewController = factory.make(publication: publication, delegate: delegate)
         let backItem = UIBarButtonItem()
         backItem.title = ""
         drmViewController.navigationItem.backBarButtonItem = backItem

@@ -15,7 +15,7 @@ import R2Shared
 import R2Navigator
 
 protocol DRMManagementTableViewControllerFactory {
-    func make(drm: DRM, delegate: ReaderModuleDelegate?) -> DRMManagementTableViewController
+    func make(publication: Publication, delegate: ReaderModuleDelegate?) -> DRMManagementTableViewController
 }
 
 class DRMManagementTableViewController: UITableViewController {

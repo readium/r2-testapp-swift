@@ -76,8 +76,8 @@ extension OPDSPublicationTableViewCell: UICollectionViewDataSource {
             )
 
             var coverURL: URL?
-            if publication.coverLink != nil {
-                coverURL = publication.url(to: publication.coverLink)
+            if let link = publication.link(withRel: .cover) {
+                coverURL = link.url(relativeTo: publication.baseURL)
             } else if publication.images.count > 0 {
                 coverURL = URL(string: publication.images[0].href)
             }

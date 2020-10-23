@@ -22,15 +22,13 @@ struct DRMFulfilledPublication {
 
 protocol DRMLibraryService {
     
-    var brand: DRM.Brand { get }
+    /// Content protection to be used with the Streamer to unlock publications.
+    var contentProtection: ContentProtection { get }
     
     /// Returns whether this DRM can fulfill the given file into a protected publication.
     func canFulfill(_ file: URL) -> Bool
     
     /// Fulfills the given file to the fully protected publication.
     func fulfill(_ file: URL, completion: @escaping (CancellableResult<DRMFulfilledPublication>) -> Void)
-    
-    /// Fills the DRM context of the given protected publication.
-    func loadPublication(at publication: URL, drm: DRM, completion: @escaping (CancellableResult<DRM?>) -> Void)
 
 }

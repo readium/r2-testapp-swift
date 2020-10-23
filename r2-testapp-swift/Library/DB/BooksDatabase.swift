@@ -59,13 +59,36 @@ class Book: Loggable {
         return href
     }
     
-    var url: URL? {
-        guard let url = URL(string: href),
-            url.scheme != nil else
-        {
-            return nil
+    var url: URL {
+        if let url = URL(string: href), url.scheme != nil {
+            return url
         }
-        return url
+        
+        var path: String = href
+        
+        // Relative to Documents/ or the App bundle?
+        if !path.hasPrefix("/") {
+            let documents = try! FileManager.default.url(
+                for: .documentDirectory,
+                in: .userDomainMask,
+                appropriateFor: nil,
+                create: true
+            )
+    
+            let files = FileManager.default
+    
+            let documentPath = documents.appendingPathComponent(path).path
+            if files.fileExists(atPath: documentPath) {
+                path = documentPath
+            } else if
+                let bundlePath = Bundle.main.path(forResource: "Samples/\(path)", ofType: nil),
+                files.fileExists(atPath: bundlePath)
+            {
+                path = bundlePath
+            }
+        }
+        
+        return URL(fileURLWithPath: path)
     }
     
     init(

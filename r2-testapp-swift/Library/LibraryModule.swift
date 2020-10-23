@@ -27,21 +27,17 @@ protocol LibraryModuleAPI {
     
     /// Adds a new publication to the library, from a local file URL.
     /// To be called from UIApplicationDelegate(open:options:).
-    /// - Returns: Whether the URL was handled.
-    func addPublication(at url: URL, from downloadTask: URLSessionDownloadTask?) -> Bool
+    func addPublication(at url: URL, from downloadTask: URLSessionDownloadTask?)
     
     /// Downloads a remote publication (eg. OPDS entry) to the library.
     func downloadPublication(_ publication: Publication?, at link: Link, completion: @escaping (Bool) -> Void)
-    
-    /// Loads the R2 DRM object for the given publication.
-    func loadDRM(for book: Book, completion: @escaping (CancellableResult<DRM?>) -> Void)
 
 }
 
 protocol LibraryModuleDelegate: ModuleDelegate {
     
     /// Called when the user tap on a publication in the library.
-    func libraryDidSelectPublication(_ publication: Publication, book: Book, completion: @escaping () -> Void)
+    func libraryDidSelectPublication(_ publication: Publication, book: Book)
     
 }
 
@@ -69,7 +65,7 @@ final class LibraryModule: LibraryModuleAPI {
         return library
     }()
     
-    func addPublication(at url: URL, from downloadTask: URLSessionDownloadTask?) -> Bool {
+    func addPublication(at url: URL, from downloadTask: URLSessionDownloadTask?) {
         if url.isFileURL {
             return library.movePublicationToLibrary(from: url, downloadTask: downloadTask)
         } else {
@@ -81,8 +77,6 @@ final class LibraryModule: LibraryModuleAPI {
         library.downloadPublication(publication, at: link, completion: completion)
     }
     
-    func loadDRM(for book: Book, completion: @escaping (CancellableResult<DRM?>) -> Void) {
-        library.loadDRM(for: book, completion: completion)
-    }
+    
     
 }
