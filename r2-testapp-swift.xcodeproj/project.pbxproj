@@ -83,6 +83,90 @@
 		571585F02109E8F9008B34AD /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585ED2109E8F8008B34AD /* BookmarkCell.swift */; };
 		571585F12109E8F9008B34AD /* BookmarkDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585EE2109E8F8008B34AD /* BookmarkDatabase.swift */; };
 		571585F22109E8F9008B34AD /* BookmarkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585EF2109E8F8008B34AD /* BookmarkDataSource.swift */; };
+		95A2DA7A266A6D430062A173 /* AssociatedColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955A2020EBA74B00A0D8D8 /* AssociatedColors.swift */; };
+		95A2DA7B266A6D430062A173 /* ReaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6BA3C422B1418200A59462 /* ReaderError.swift */; };
+		95A2DA7C266A6D430062A173 /* ReaderModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B71E222001620037534C /* ReaderModule.swift */; };
+		95A2DA7D266A6D430062A173 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415F0D221D6CE5003A0F7F /* AppModule.swift */; };
+		95A2DA7E266A6D430062A173 /* OPDSPublicationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B12CC20800FD60074A5A2 /* OPDSPublicationInfoViewController.swift */; };
+		95A2DA7F266A6D430062A173 /* CBZViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E7D47F1F4F03F500DF166D /* CBZViewController.swift */; };
+		95A2DA80266A6D430062A173 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B73222200EAA0037534C /* UIViewController.swift */; };
+		95A2DA81266A6D430062A173 /* OPDSGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53A075208F62D200737838 /* OPDSGroupCollectionViewCell.swift */; };
+		95A2DA82266A6D430062A173 /* OPDSFacetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B12C920800FD50074A5A2 /* OPDSFacetViewController.swift */; };
+		95A2DA83266A6D430062A173 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA16A84022311F7E00E66255 /* PDFViewController.swift */; };
+		95A2DA84266A6D430062A173 /* EPUBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E7D4811F4F042600DF166D /* EPUBViewController.swift */; };
+		95A2DA85266A6D430062A173 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E7D4701F4EFEC200DF166D /* LibraryViewController.swift */; };
+		95A2DA86266A6D430062A173 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA26EF7F2280689B0011653E /* Connection.swift */; };
+		95A2DA87266A6D430062A173 /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD69DC22C3A42600A4CADF /* Publication.swift */; };
+		95A2DA88266A6D430062A173 /* AdvancedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD533A1F72B27400E46FFC /* AdvancedSettingsViewController.swift */; };
+		95A2DA89266A6D430062A173 /* DRMManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CB28B1FCC20D4005E3A37 /* DRMManagementTableViewController.swift */; };
+		95A2DA8A266A6D430062A173 /* OPDSGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53A073208F623E00737838 /* OPDSGroupTableViewCell.swift */; };
+		95A2DA8B266A6D430062A173 /* PublicationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032F7E3021167E9A009E5C24 /* PublicationMenuViewController.swift */; };
+		95A2DA8C266A6D430062A173 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABD697224CD7F7200B4AE17 /* URL.swift */; };
+		95A2DA8D266A6D430062A173 /* ReaderFormatModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA200643222059F200E6B3BD /* ReaderFormatModule.swift */; };
+		95A2DA8E266A6D430062A173 /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415F27221D7753003A0F7F /* LibraryService.swift */; };
+		95A2DA8F266A6D430062A173 /* LibraryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B713222000810037534C /* LibraryModule.swift */; };
+		95A2DA90266A6D430062A173 /* OPDSPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED681F120A32EBA0090DBCD /* OPDSPlaceholderView.swift */; };
+		95A2DA91266A6D430062A173 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE84FC225640A500E19E8B /* Bookmark.swift */; };
+		95A2DA92266A6D430062A173 /* OPDSNavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48F321208DE1E4000B7B44 /* OPDSNavigationTableViewCell.swift */; };
+		95A2DA93266A6D430062A173 /* DRMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A40D2221C054B00531EA1 /* DRMViewModel.swift */; };
+		95A2DA94266A6D430062A173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E7D43B1F4EF6D400DF166D /* AppDelegate.swift */; };
+		95A2DA95266A6D430062A173 /* PDFModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B3AC6222EE726006D9363 /* PDFModule.swift */; };
+		95A2DA96266A6D430062A173 /* OPDSCatalogSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B12C120800FD50074A5A2 /* OPDSCatalogSelectorViewController.swift */; };
+		95A2DA97266A6D430062A173 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380490A21166627009F48BD /* Toast.swift */; };
+		95A2DA98266A6D430062A173 /* DRMLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F5A402204A05700B88141 /* DRMLibraryService.swift */; };
+		95A2DA99266A6D430062A173 /* LCPLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2AE315221C11F4008BD18F /* LCPLibraryService.swift */; };
+		95A2DA9A266A6D430062A173 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E7D4851F4F044100DF166D /* UserSettingsTableViewController.swift */; };
+		95A2DA9B266A6D430062A173 /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA817406245821AC00033776 /* BarButtonItem.swift */; };
+		95A2DA9C266A6D430062A173 /* ReaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B723222001740037534C /* ReaderFactory.swift */; };
+		95A2DA9D266A6D430062A173 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA16A8452231224200E66255 /* ReaderViewController.swift */; };
+		95A2DA9E266A6D430062A173 /* LCPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A40D7221C069D00531EA1 /* LCPViewModel.swift */; };
+		95A2DA9F266A6D430062A173 /* CBZModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B744222039FE0037534C /* CBZModule.swift */; };
+		95A2DAA0266A6D430062A173 /* BookmarkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585EF2109E8F8008B34AD /* BookmarkDataSource.swift */; };
+		95A2DAA1266A6D430062A173 /* OPDSRootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48F31F208DD3A9000B7B44 /* OPDSRootTableViewController.swift */; };
+		95A2DAA2266A6D430062A173 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E7D47B1F4F03B800DF166D /* UIImage.swift */; };
+		95A2DAA3266A6D430062A173 /* EPUBModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B74E22204F320037534C /* EPUBModule.swift */; };
+		95A2DAA4266A6D430062A173 /* OPDSModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B72D22200B9A0037534C /* OPDSModule.swift */; };
+		95A2DAA5266A6D430062A173 /* FontSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BD53381F72B26700E46FFC /* FontSelectionViewController.swift */; };
+		95A2DAA6266A6D430062A173 /* OutlineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E7D4841F4F044100DF166D /* OutlineTableViewController.swift */; };
+		95A2DAA7266A6D430062A173 /* OPDSPublicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48F323208E0375000B7B44 /* OPDSPublicationTableViewCell.swift */; };
+		95A2DAA8266A6D430062A173 /* LibraryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B6F4221FF43E0037534C /* LibraryFactory.swift */; };
+		95A2DAA9266A6D430062A173 /* BooksDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE308E2259F3E400AA4C7C /* BooksDatabase.swift */; };
+		95A2DAAA266A6D430062A173 /* OPDSFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B704221FF8F30037534C /* OPDSFactory.swift */; };
+		95A2DAAB266A6D430062A173 /* PublicationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032F7E3121167E9A009E5C24 /* PublicationCollectionViewCell.swift */; };
+		95A2DAAC266A6D430062A173 /* BookmarkDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585EE2109E8F8008B34AD /* BookmarkDatabase.swift */; };
+		95A2DAAD266A6D430062A173 /* UserSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCFFBD1F7CE0610056BA37 /* UserSettingsNavigationController.swift */; };
+		95A2DAAE266A6D430062A173 /* ScreenOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8672AD244864040035FDF4 /* ScreenOrientation.swift */; };
+		95A2DAAF266A6D430062A173 /* DetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30AEE791FC312EA0073C9FD /* DetailsTableViewController.swift */; };
+		95A2DAB0266A6D430062A173 /* LibraryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6BA3BF22B1106E00A59462 /* LibraryError.swift */; };
+		95A2DAB1266A6D430062A173 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585ED2109E8F8008B34AD /* BookmarkCell.swift */; };
+		95A2DAB2266A6D430062A173 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37DE422093291600079AA2 /* AboutTableViewController.swift */; };
+		95A2DAB6266A6D430062A173 /* GCDWebServer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAAEE5925D17C4D00939C5C /* GCDWebServer.xcframework */; };
+		95A2DAC3266A6D430062A173 /* Outline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA38C22B0FF2A00A59462 /* Outline.storyboard */; };
+		95A2DAC4266A6D430062A173 /* DRM.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA38622B0FF2500A59462 /* DRM.storyboard */; };
+		95A2DAC5266A6D430062A173 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA38022B0FF1F00A59462 /* Library.storyboard */; };
+		95A2DAC6266A6D430062A173 /* PublicationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA39E22B0FF5F00A59462 /* PublicationCollectionViewCell.xib */; };
+		95A2DAC7266A6D430062A173 /* PublicationMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA3A422B0FF6500A59462 /* PublicationMenuViewController.xib */; };
+		95A2DAC8266A6D430062A173 /* OPDS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA39822B0FF4000A59462 /* OPDS.storyboard */; };
+		95A2DAC9266A6D430062A173 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA37A22B0FF1100A59462 /* App.storyboard */; };
+		95A2DACA266A6D430062A173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E7D4441F4EF6D400DF166D /* LaunchScreen.storyboard */; };
+		95A2DACB266A6D430062A173 /* Samples in Resources */ = {isa = PBXBuildFile; fileRef = CA1E4F4524002D5F009C4DE3 /* Samples */; };
+		95A2DACC266A6D430062A173 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA37322B0F05000A59462 /* Localizable.strings */; };
+		95A2DACD266A6D430062A173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E7D4421F4EF6D400DF166D /* Assets.xcassets */; };
+		95A2DACE266A6D430062A173 /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA39222B0FF3700A59462 /* UserSettings.storyboard */; };
+		95A2DAD2266A6D430062A173 /* GCDWebServer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAAAEE5925D17C4D00939C5C /* GCDWebServer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95A2DAE5266A6D890062A173 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAE4266A6D890062A173 /* Kingfisher */; };
+		95A2DAE7266A6D890062A173 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAE6266A6D890062A173 /* KingfisherSwiftUI */; };
+		95A2DAEA266A6D990062A173 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAE9266A6D990062A173 /* MBProgressHUD */; };
+		95A2DAED266A6DAA0062A173 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAEC266A6DAA0062A173 /* Fuzi */; };
+		95A2DAF0266A6DBA0062A173 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAEF266A6DBA0062A173 /* ZIPFoundation */; };
+		95A2DAF3266A6DCC0062A173 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAF2266A6DCC0062A173 /* SQLite */; };
+		95A2DAF6266A6DDD0062A173 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAF5266A6DDD0062A173 /* CryptoSwift */; };
+		95A2DAF9266A6DEB0062A173 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAF8266A6DEB0062A173 /* Zip */; };
+		95A2DAFC266A6DF90062A173 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAFB266A6DF90062A173 /* SwiftSoup */; };
+		95A2DAFE266A6EAA0062A173 /* R2Navigator in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAFD266A6EAA0062A173 /* R2Navigator */; };
+		95A2DB00266A6EAA0062A173 /* R2Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAFF266A6EAA0062A173 /* R2Shared */; };
+		95A2DB02266A6EAA0062A173 /* R2Streamer in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DB01266A6EAA0062A173 /* R2Streamer */; };
+		95A2DB04266A6EAA0062A173 /* ReadiumOPDS in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DB03266A6EAA0062A173 /* ReadiumOPDS */; };
 		AE37DE432093291600079AA2 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37DE422093291600079AA2 /* AboutTableViewController.swift */; };
 		AE48F320208DD3A9000B7B44 /* OPDSRootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48F31F208DD3A9000B7B44 /* OPDSRootTableViewController.swift */; };
 		AE48F322208DE1E4000B7B44 /* OPDSNavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48F321208DE1E4000B7B44 /* OPDSNavigationTableViewCell.swift */; };
@@ -404,6 +488,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		95A2DACF266A6D430062A173 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95A2DAD2266A6D430062A173 /* GCDWebServer.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAF8E81925D2DCFD00827825 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,6 +643,8 @@
 		571585EE2109E8F8008B34AD /* BookmarkDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkDatabase.swift; sourceTree = "<group>"; };
 		571585EF2109E8F8008B34AD /* BookmarkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkDataSource.swift; sourceTree = "<group>"; };
 		57CADB3220D14B3100DF6675 /* r2-testapp-swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "r2-testapp-swift.entitlements"; sourceTree = "<group>"; };
+		95A2DAE1266A6D430062A173 /* r2-testapp-swift (local spm).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "r2-testapp-swift (local spm).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95A2DAE2266A6D430062A173 /* r2-testapp-swift (submodules) copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "r2-testapp-swift (submodules) copy-Info.plist"; path = "/Users/stevenzeck/Documents/GitHub/r2-workspace-swift/r2-testapp-swift/r2-testapp-swift (submodules) copy-Info.plist"; sourceTree = "<absolute>"; };
 		AE37DE422093291600079AA2 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		AE48F31F208DD3A9000B7B44 /* OPDSRootTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDSRootTableViewController.swift; sourceTree = "<group>"; };
 		AE48F321208DE1E4000B7B44 /* OPDSNavigationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDSNavigationTableViewCell.swift; sourceTree = "<group>"; };
@@ -684,6 +781,27 @@
 				CAF8E87525D2DD2700827825 /* SQLite.xcframework in Frameworks */,
 				CAF8E87B25D2DD2900827825 /* ZIPFoundation.xcframework in Frameworks */,
 				03A5DB9D23B785FC00D5FCBD /* R2LCPClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95A2DAB3266A6D430062A173 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95A2DAF3266A6DCC0062A173 /* SQLite in Frameworks */,
+				95A2DAF0266A6DBA0062A173 /* ZIPFoundation in Frameworks */,
+				95A2DAB6266A6D430062A173 /* GCDWebServer.xcframework in Frameworks */,
+				95A2DB00266A6EAA0062A173 /* R2Shared in Frameworks */,
+				95A2DAF9266A6DEB0062A173 /* Zip in Frameworks */,
+				95A2DB02266A6EAA0062A173 /* R2Streamer in Frameworks */,
+				95A2DAE7266A6D890062A173 /* KingfisherSwiftUI in Frameworks */,
+				95A2DAFE266A6EAA0062A173 /* R2Navigator in Frameworks */,
+				95A2DAEA266A6D990062A173 /* MBProgressHUD in Frameworks */,
+				95A2DAE5266A6D890062A173 /* Kingfisher in Frameworks */,
+				95A2DB04266A6EAA0062A173 /* ReadiumOPDS in Frameworks */,
+				95A2DAED266A6DAA0062A173 /* Fuzi in Frameworks */,
+				95A2DAF6266A6DDD0062A173 /* CryptoSwift in Frameworks */,
+				95A2DAFC266A6DF90062A173 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,6 +1076,7 @@
 				F3E7D45A1F4EF6D400DF166D /* r2-testapp-swiftUITests */,
 				F3E7D4391F4EF6D400DF166D /* Products */,
 				F3E7D4691F4EFE8700DF166D /* Frameworks */,
+				95A2DAE2266A6D430062A173 /* r2-testapp-swift (submodules) copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -968,6 +1087,7 @@
 				0350FD28211CD2CB006994C2 /* r2-testapp-swift.app */,
 				0350FD7C211CD625006994C2 /* r2-testapp-swift.app */,
 				CA822CBE221C5737005800D1 /* r2-testapp-swift.app */,
+				95A2DAE1266A6D430062A173 /* r2-testapp-swift (local spm).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1097,6 +1217,39 @@
 			productReference = 0350FD7C211CD625006994C2 /* r2-testapp-swift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		95A2DA78266A6D430062A173 /* r2-testapp-swift (local spm) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95A2DADE266A6D430062A173 /* Build configuration list for PBXNativeTarget "r2-testapp-swift (local spm)" */;
+			buildPhases = (
+				95A2DA79266A6D430062A173 /* Sources */,
+				95A2DAB3266A6D430062A173 /* Frameworks */,
+				95A2DAC2266A6D430062A173 /* Resources */,
+				95A2DACF266A6D430062A173 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "r2-testapp-swift (local spm)";
+			packageProductDependencies = (
+				95A2DAE4266A6D890062A173 /* Kingfisher */,
+				95A2DAE6266A6D890062A173 /* KingfisherSwiftUI */,
+				95A2DAE9266A6D990062A173 /* MBProgressHUD */,
+				95A2DAEC266A6DAA0062A173 /* Fuzi */,
+				95A2DAEF266A6DBA0062A173 /* ZIPFoundation */,
+				95A2DAF2266A6DCC0062A173 /* SQLite */,
+				95A2DAF5266A6DDD0062A173 /* CryptoSwift */,
+				95A2DAF8266A6DEB0062A173 /* Zip */,
+				95A2DAFB266A6DF90062A173 /* SwiftSoup */,
+				95A2DAFD266A6EAA0062A173 /* R2Navigator */,
+				95A2DAFF266A6EAA0062A173 /* R2Shared */,
+				95A2DB01266A6EAA0062A173 /* R2Streamer */,
+				95A2DB03266A6EAA0062A173 /* ReadiumOPDS */,
+			);
+			productName = "r2-testapp-swift";
+			productReference = 95A2DAE1266A6D430062A173 /* r2-testapp-swift (local spm).app */;
+			productType = "com.apple.product-type.application";
+		};
 		CA822C71221C5737005800D1 /* r2-testapp-swift (submodules with lcp) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA822CBB221C5737005800D1 /* Build configuration list for PBXNativeTarget "r2-testapp-swift (submodules with lcp)" */;
@@ -1179,6 +1332,16 @@
 				Base,
 			);
 			mainGroup = F3E7D42F1F4EF6D400DF166D;
+			packageReferences = (
+				95A2DAE3266A6D890062A173 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				95A2DAE8266A6D990062A173 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				95A2DAEB266A6DAA0062A173 /* XCRemoteSwiftPackageReference "Fuzi" */,
+				95A2DAEE266A6DBA0062A173 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				95A2DAF1266A6DCC0062A173 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				95A2DAF4266A6DDD0062A173 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				95A2DAF7266A6DEB0062A173 /* XCRemoteSwiftPackageReference "Zip" */,
+				95A2DAFA266A6DF90062A173 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = F3E7D4391F4EF6D400DF166D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1187,6 +1350,7 @@
 				0350FCE3211CD2CB006994C2 /* r2-testapp-swift (submodules) */,
 				0350FD37211CD625006994C2 /* r2-testapp-swift (carthage with lcp) */,
 				CA822C71221C5737005800D1 /* r2-testapp-swift (submodules with lcp) */,
+				95A2DA78266A6D430062A173 /* r2-testapp-swift (local spm) */,
 			);
 		};
 /* End PBXProject section */
@@ -1227,6 +1391,25 @@
 				CA6BA37022B0F05000A59462 /* Localizable.strings in Resources */,
 				0350FD76211CD625006994C2 /* Assets.xcassets in Resources */,
 				CA6BA38F22B0FF3700A59462 /* UserSettings.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95A2DAC2266A6D430062A173 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95A2DAC3266A6D430062A173 /* Outline.storyboard in Resources */,
+				95A2DAC4266A6D430062A173 /* DRM.storyboard in Resources */,
+				95A2DAC5266A6D430062A173 /* Library.storyboard in Resources */,
+				95A2DAC6266A6D430062A173 /* PublicationCollectionViewCell.xib in Resources */,
+				95A2DAC7266A6D430062A173 /* PublicationMenuViewController.xib in Resources */,
+				95A2DAC8266A6D430062A173 /* OPDS.storyboard in Resources */,
+				95A2DAC9266A6D430062A173 /* App.storyboard in Resources */,
+				95A2DACA266A6D430062A173 /* LaunchScreen.storyboard in Resources */,
+				95A2DACB266A6D430062A173 /* Samples in Resources */,
+				95A2DACC266A6D430062A173 /* Localizable.strings in Resources */,
+				95A2DACD266A6D430062A173 /* Assets.xcassets in Resources */,
+				95A2DACE266A6D430062A173 /* UserSettings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1439,6 +1622,70 @@
 				CA6BA3C222B1106E00A59462 /* LibraryError.swift in Sources */,
 				0350FD55211CD625006994C2 /* BookmarkCell.swift in Sources */,
 				0350FD56211CD625006994C2 /* AboutTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95A2DA79266A6D430062A173 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95A2DA7A266A6D430062A173 /* AssociatedColors.swift in Sources */,
+				95A2DA7B266A6D430062A173 /* ReaderError.swift in Sources */,
+				95A2DA7C266A6D430062A173 /* ReaderModule.swift in Sources */,
+				95A2DA7D266A6D430062A173 /* AppModule.swift in Sources */,
+				95A2DA7E266A6D430062A173 /* OPDSPublicationInfoViewController.swift in Sources */,
+				95A2DA7F266A6D430062A173 /* CBZViewController.swift in Sources */,
+				95A2DA80266A6D430062A173 /* UIViewController.swift in Sources */,
+				95A2DA81266A6D430062A173 /* OPDSGroupCollectionViewCell.swift in Sources */,
+				95A2DA82266A6D430062A173 /* OPDSFacetViewController.swift in Sources */,
+				95A2DA83266A6D430062A173 /* PDFViewController.swift in Sources */,
+				95A2DA84266A6D430062A173 /* EPUBViewController.swift in Sources */,
+				95A2DA85266A6D430062A173 /* LibraryViewController.swift in Sources */,
+				95A2DA86266A6D430062A173 /* Connection.swift in Sources */,
+				95A2DA87266A6D430062A173 /* Publication.swift in Sources */,
+				95A2DA88266A6D430062A173 /* AdvancedSettingsViewController.swift in Sources */,
+				95A2DA89266A6D430062A173 /* DRMManagementTableViewController.swift in Sources */,
+				95A2DA8A266A6D430062A173 /* OPDSGroupTableViewCell.swift in Sources */,
+				95A2DA8B266A6D430062A173 /* PublicationMenuViewController.swift in Sources */,
+				95A2DA8C266A6D430062A173 /* URL.swift in Sources */,
+				95A2DA8D266A6D430062A173 /* ReaderFormatModule.swift in Sources */,
+				95A2DA8E266A6D430062A173 /* LibraryService.swift in Sources */,
+				95A2DA8F266A6D430062A173 /* LibraryModule.swift in Sources */,
+				95A2DA90266A6D430062A173 /* OPDSPlaceholderView.swift in Sources */,
+				95A2DA91266A6D430062A173 /* Bookmark.swift in Sources */,
+				95A2DA92266A6D430062A173 /* OPDSNavigationTableViewCell.swift in Sources */,
+				95A2DA93266A6D430062A173 /* DRMViewModel.swift in Sources */,
+				95A2DA94266A6D430062A173 /* AppDelegate.swift in Sources */,
+				95A2DA95266A6D430062A173 /* PDFModule.swift in Sources */,
+				95A2DA96266A6D430062A173 /* OPDSCatalogSelectorViewController.swift in Sources */,
+				95A2DA97266A6D430062A173 /* Toast.swift in Sources */,
+				95A2DA98266A6D430062A173 /* DRMLibraryService.swift in Sources */,
+				95A2DA99266A6D430062A173 /* LCPLibraryService.swift in Sources */,
+				95A2DA9A266A6D430062A173 /* UserSettingsTableViewController.swift in Sources */,
+				95A2DA9B266A6D430062A173 /* BarButtonItem.swift in Sources */,
+				95A2DA9C266A6D430062A173 /* ReaderFactory.swift in Sources */,
+				95A2DA9D266A6D430062A173 /* ReaderViewController.swift in Sources */,
+				95A2DA9E266A6D430062A173 /* LCPViewModel.swift in Sources */,
+				95A2DA9F266A6D430062A173 /* CBZModule.swift in Sources */,
+				95A2DAA0266A6D430062A173 /* BookmarkDataSource.swift in Sources */,
+				95A2DAA1266A6D430062A173 /* OPDSRootTableViewController.swift in Sources */,
+				95A2DAA2266A6D430062A173 /* UIImage.swift in Sources */,
+				95A2DAA3266A6D430062A173 /* EPUBModule.swift in Sources */,
+				95A2DAA4266A6D430062A173 /* OPDSModule.swift in Sources */,
+				95A2DAA5266A6D430062A173 /* FontSelectionViewController.swift in Sources */,
+				95A2DAA6266A6D430062A173 /* OutlineTableViewController.swift in Sources */,
+				95A2DAA7266A6D430062A173 /* OPDSPublicationTableViewCell.swift in Sources */,
+				95A2DAA8266A6D430062A173 /* LibraryFactory.swift in Sources */,
+				95A2DAA9266A6D430062A173 /* BooksDatabase.swift in Sources */,
+				95A2DAAA266A6D430062A173 /* OPDSFactory.swift in Sources */,
+				95A2DAAB266A6D430062A173 /* PublicationCollectionViewCell.swift in Sources */,
+				95A2DAAC266A6D430062A173 /* BookmarkDatabase.swift in Sources */,
+				95A2DAAD266A6D430062A173 /* UserSettingsNavigationController.swift in Sources */,
+				95A2DAAE266A6D430062A173 /* ScreenOrientation.swift in Sources */,
+				95A2DAAF266A6D430062A173 /* DetailsTableViewController.swift in Sources */,
+				95A2DAB0266A6D430062A173 /* LibraryError.swift in Sources */,
+				95A2DAB1266A6D430062A173 /* BookmarkCell.swift in Sources */,
+				95A2DAB2266A6D430062A173 /* AboutTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1811,6 +2058,82 @@
 			};
 			name = Release;
 		};
+		95A2DADF266A6D430062A173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_CODE_COVERAGE = NO;
+				CODE_SIGN_ENTITLEMENTS = "r2-testapp-swift/r2-testapp-swift.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = 327YA3JNGT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "r2-testapp-swift (submodules) copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 2.2.0;
+				OTHER_LDFLAGS = "-lxml2";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.readium.r2reader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		95A2DAE0266A6D430062A173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_CODE_COVERAGE = NO;
+				CODE_SIGN_ENTITLEMENTS = "r2-testapp-swift/r2-testapp-swift.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = 327YA3JNGT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "r2-testapp-swift (submodules) copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 2.2.0;
+				OTHER_LDFLAGS = "-lxml2";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.readium.r2reader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		CA822CBC221C5737005800D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2100,6 +2423,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		95A2DADE266A6D430062A173 /* Build configuration list for PBXNativeTarget "r2-testapp-swift (local spm)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95A2DADF266A6D430062A173 /* Debug */,
+				95A2DAE0266A6D430062A173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CA822CBB221C5737005800D1 /* Build configuration list for PBXNativeTarget "r2-testapp-swift (submodules with lcp)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2128,6 +2460,137 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		95A2DAE3266A6D890062A173 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.15.8;
+			};
+		};
+		95A2DAE8266A6D990062A173 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
+			};
+		};
+		95A2DAEB266A6DAA0062A173 /* XCRemoteSwiftPackageReference "Fuzi" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cezheng/Fuzi.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.1.3;
+			};
+		};
+		95A2DAEE266A6DBA0062A173 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.11;
+			};
+		};
+		95A2DAF1266A6DCC0062A173 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.12.2;
+			};
+		};
+		95A2DAF4266A6DDD0062A173 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.8;
+			};
+		};
+		95A2DAF7266A6DEB0062A173 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.1.1;
+			};
+		};
+		95A2DAFA266A6DF90062A173 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		95A2DAE4266A6D890062A173 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAE3266A6D890062A173 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		95A2DAE6266A6D890062A173 /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAE3266A6D890062A173 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		95A2DAE9266A6D990062A173 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAE8266A6D990062A173 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		95A2DAEC266A6DAA0062A173 /* Fuzi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAEB266A6DAA0062A173 /* XCRemoteSwiftPackageReference "Fuzi" */;
+			productName = Fuzi;
+		};
+		95A2DAEF266A6DBA0062A173 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAEE266A6DBA0062A173 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		95A2DAF2266A6DCC0062A173 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAF1266A6DCC0062A173 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+		95A2DAF5266A6DDD0062A173 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAF4266A6DDD0062A173 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+		95A2DAF8266A6DEB0062A173 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAF7266A6DEB0062A173 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		95A2DAFB266A6DF90062A173 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95A2DAFA266A6DF90062A173 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		95A2DAFD266A6EAA0062A173 /* R2Navigator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = R2Navigator;
+		};
+		95A2DAFF266A6EAA0062A173 /* R2Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = R2Shared;
+		};
+		95A2DB01266A6EAA0062A173 /* R2Streamer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = R2Streamer;
+		};
+		95A2DB03266A6EAA0062A173 /* ReadiumOPDS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ReadiumOPDS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3E7D4301F4EF6D400DF166D /* Project object */;
 }
