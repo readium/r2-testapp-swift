@@ -1,0 +1,41 @@
+name: R2TestApp
+options:
+  bundleIdPrefix: org.readium
+packages:
+  R2Shared:
+    path: Packages/r2-shared-swift
+  R2Streamer:
+    path: Packages/r2-streamer-swift
+  R2Navigator:
+    path: Packages/r2-navigator-swift
+  ReadiumOPDS:
+    path: Packages/r2-opds-swift
+  Kingfisher:
+    url: https://github.com/onevcat/Kingfisher.git
+    from: 5.15.8
+  MBProgressHUD:
+    url: https://github.com/jdg/MBProgressHUD.git
+    from: 1.2.0
+  SQLite:
+    url: https://github.com/stephencelis/SQLite.swift.git
+    from: 0.12.2
+targets:
+  R2TestApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "10.0"
+    sources: 
+      - path: Sources
+        excludes:
+          - Resources/Samples
+      - path: Sources/Resources/Samples
+        type: folder
+    dependencies:
+      - package: R2Shared
+      - package: R2Streamer
+      - package: R2Navigator
+      - package: ReadiumOPDS
+      - package: Kingfisher
+      - package: MBProgressHUD
+      - package: SQLite
+
