@@ -83,6 +83,7 @@
 		571585F02109E8F9008B34AD /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585ED2109E8F8008B34AD /* BookmarkCell.swift */; };
 		571585F12109E8F9008B34AD /* BookmarkDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585EE2109E8F8008B34AD /* BookmarkDatabase.swift */; };
 		571585F22109E8F9008B34AD /* BookmarkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585EF2109E8F8008B34AD /* BookmarkDataSource.swift */; };
+		958AE719266E7CF2001C2C60 /* GCDWebServer in Frameworks */ = {isa = PBXBuildFile; productRef = 958AE718266E7CF2001C2C60 /* GCDWebServer */; };
 		95A2DA7A266A6D430062A173 /* AssociatedColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955A2020EBA74B00A0D8D8 /* AssociatedColors.swift */; };
 		95A2DA7B266A6D430062A173 /* ReaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6BA3C422B1418200A59462 /* ReaderError.swift */; };
 		95A2DA7C266A6D430062A173 /* ReaderModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29B71E222001620037534C /* ReaderModule.swift */; };
@@ -140,7 +141,6 @@
 		95A2DAB0266A6D430062A173 /* LibraryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6BA3BF22B1106E00A59462 /* LibraryError.swift */; };
 		95A2DAB1266A6D430062A173 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571585ED2109E8F8008B34AD /* BookmarkCell.swift */; };
 		95A2DAB2266A6D430062A173 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE37DE422093291600079AA2 /* AboutTableViewController.swift */; };
-		95A2DAB6266A6D430062A173 /* GCDWebServer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAAEE5925D17C4D00939C5C /* GCDWebServer.xcframework */; };
 		95A2DAC3266A6D430062A173 /* Outline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA38C22B0FF2A00A59462 /* Outline.storyboard */; };
 		95A2DAC4266A6D430062A173 /* DRM.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA38622B0FF2500A59462 /* DRM.storyboard */; };
 		95A2DAC5266A6D430062A173 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA38022B0FF1F00A59462 /* Library.storyboard */; };
@@ -153,7 +153,6 @@
 		95A2DACC266A6D430062A173 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA37322B0F05000A59462 /* Localizable.strings */; };
 		95A2DACD266A6D430062A173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E7D4421F4EF6D400DF166D /* Assets.xcassets */; };
 		95A2DACE266A6D430062A173 /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6BA39222B0FF3700A59462 /* UserSettings.storyboard */; };
-		95A2DAD2266A6D430062A173 /* GCDWebServer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAAAEE5925D17C4D00939C5C /* GCDWebServer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95A2DAE5266A6D890062A173 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAE4266A6D890062A173 /* Kingfisher */; };
 		95A2DAE7266A6D890062A173 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAE6266A6D890062A173 /* KingfisherSwiftUI */; };
 		95A2DAEA266A6D990062A173 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 95A2DAE9266A6D990062A173 /* MBProgressHUD */; };
@@ -488,17 +487,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		95A2DACF266A6D430062A173 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				95A2DAD2266A6D430062A173 /* GCDWebServer.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CAF8E81925D2DCFD00827825 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -790,7 +778,6 @@
 			files = (
 				95A2DAF3266A6DCC0062A173 /* SQLite in Frameworks */,
 				95A2DAF0266A6DBA0062A173 /* ZIPFoundation in Frameworks */,
-				95A2DAB6266A6D430062A173 /* GCDWebServer.xcframework in Frameworks */,
 				95A2DB00266A6EAA0062A173 /* R2Shared in Frameworks */,
 				95A2DAF9266A6DEB0062A173 /* Zip in Frameworks */,
 				95A2DB02266A6EAA0062A173 /* R2Streamer in Frameworks */,
@@ -800,6 +787,7 @@
 				95A2DAE5266A6D890062A173 /* Kingfisher in Frameworks */,
 				95A2DB04266A6EAA0062A173 /* ReadiumOPDS in Frameworks */,
 				95A2DAED266A6DAA0062A173 /* Fuzi in Frameworks */,
+				958AE719266E7CF2001C2C60 /* GCDWebServer in Frameworks */,
 				95A2DAF6266A6DDD0062A173 /* CryptoSwift in Frameworks */,
 				95A2DAFC266A6DF90062A173 /* SwiftSoup in Frameworks */,
 			);
@@ -1224,7 +1212,6 @@
 				95A2DA79266A6D430062A173 /* Sources */,
 				95A2DAB3266A6D430062A173 /* Frameworks */,
 				95A2DAC2266A6D430062A173 /* Resources */,
-				95A2DACF266A6D430062A173 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1245,6 +1232,7 @@
 				95A2DAFF266A6EAA0062A173 /* R2Shared */,
 				95A2DB01266A6EAA0062A173 /* R2Streamer */,
 				95A2DB03266A6EAA0062A173 /* ReadiumOPDS */,
+				958AE718266E7CF2001C2C60 /* GCDWebServer */,
 			);
 			productName = "r2-testapp-swift";
 			productReference = 95A2DAE1266A6D430062A173 /* r2-testapp-swift (local spm).app */;
@@ -1341,6 +1329,7 @@
 				95A2DAF4266A6DDD0062A173 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				95A2DAF7266A6DEB0062A173 /* XCRemoteSwiftPackageReference "Zip" */,
 				95A2DAFA266A6DF90062A173 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				958AE717266E7CF2001C2C60 /* XCRemoteSwiftPackageReference "GCDWebServer" */,
 			);
 			productRefGroup = F3E7D4391F4EF6D400DF166D /* Products */;
 			projectDirPath = "";
@@ -2075,7 +2064,7 @@
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "r2-testapp-swift (submodules) copy-Info.plist";
+				INFOPLIST_FILE = "r2-testapp-swift/r2-testapp-swift-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2113,7 +2102,7 @@
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "r2-testapp-swift (submodules) copy-Info.plist";
+				INFOPLIST_FILE = "r2-testapp-swift/r2-testapp-swift-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2462,6 +2451,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		958AE717266E7CF2001C2C60 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/readium/GCDWebServer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.7.0;
+			};
+		};
 		95A2DAE3266A6D890062A173 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -2474,16 +2471,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.2.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
 			};
 		};
 		95A2DAEB266A6DAA0062A173 /* XCRemoteSwiftPackageReference "Fuzi" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/cezheng/Fuzi.git";
 			requirement = {
-				kind = exactVersion;
-				version = 3.1.3;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
 			};
 		};
 		95A2DAEE266A6DBA0062A173 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
@@ -2498,37 +2495,42 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
 			requirement = {
-				kind = exactVersion;
-				version = 0.12.2;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.2;
 			};
 		};
 		95A2DAF4266A6DDD0062A173 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.3.8;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.8;
 			};
 		};
 		95A2DAF7266A6DEB0062A173 /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip.git";
 			requirement = {
-				kind = exactVersion;
-				version = 2.1.1;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
 			};
 		};
 		95A2DAFA266A6DF90062A173 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
 			requirement = {
-				kind = exactVersion;
-				version = 2.3.2;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		958AE718266E7CF2001C2C60 /* GCDWebServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 958AE717266E7CF2001C2C60 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
+			productName = GCDWebServer;
+		};
 		95A2DAE4266A6D890062A173 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 95A2DAE3266A6D890062A173 /* XCRemoteSwiftPackageReference "Kingfisher" */;
