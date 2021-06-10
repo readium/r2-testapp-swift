@@ -33,7 +33,7 @@ carthage: clean
 ifdef lcp
 	@cp Integrations/Carthage/project+lcp.yml project.yml
 	@cp Integrations/Carthage/Cartfile+lcp Cartfile
-	@echo "binary \"${LCP_URL}\"" >> Cartfile
+	@echo "binary \"$(lcp)\"" >> Cartfile
 else
 	@cp Integrations/Carthage/project.yml .
 	@cp Integrations/Carthage/Cartfile .
@@ -44,7 +44,7 @@ endif
 
 cocoapods: clean
 ifdef lcp
-	sed -e "s>LCP_URL>$(lcp)>g" Integrations/CocoaPods/Podfile+lcp > Podfile
+	@sed -e "s>LCP_URL>$(lcp)>g" Integrations/CocoaPods/Podfile+lcp > Podfile
 	@cp Integrations/CocoaPods/project+lcp.yml project.yml
 else
 	@cp Integrations/CocoaPods/project.yml .
@@ -57,10 +57,10 @@ endif
 dev: clean
 ifdef lcp
 	@cp Integrations/Submodules/project+lcp.yml project.yml
-	@echo "binary \"${LCP_URL}\"" > Cartfile
+	@echo "binary \"$(lcp)\"" > Cartfile
 	carthage update --platform ios --cache-builds
 else
-	cp Integrations/Submodules/project.yml .
+	@cp Integrations/Submodules/project.yml .
 endif
 	git submodule update --init --recursive
 	xcodegen generate

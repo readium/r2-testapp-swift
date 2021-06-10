@@ -19,6 +19,7 @@ xcuserdata/
 
 # Xcode projects are generated with https://github.com/yonaskolb/XcodeGen
 *.xcodeproj
+*.xcworkspace
 
 ## Other
 *.moved-aside
