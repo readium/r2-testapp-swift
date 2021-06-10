@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install dependencies
-        run: brew install xcodegen carthage
+        run: brew install xcodegen
       - name: Generate project
         run: make carthage
       - name: Build
@@ -47,13 +47,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install dependencies
-        run: brew install xcodegen cocoapods
+        run: brew install xcodegen
       - name: Generate project
         run: make cocoapods
       - name: Build
         run: |
           device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}'`
-          xcodebuild build -scheme R2TestApp -destination "platform=$platform,name=$device"
+          xcodebuild build -workspace R2TestApp.xcworkspace -scheme R2TestApp -destination "platform=$platform,name=$device"
 
   dev:
     name: Integration with submodules
