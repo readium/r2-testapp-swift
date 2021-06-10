@@ -67,12 +67,14 @@ cocoapods+lcp: clean
 	open R2TestApp.xcworkspace
 
 dev: clean
+	git submodule update --init --recursive
 	cp Integrations/Submodules/project.yml .
 	xcodegen generate
 	open R2TestApp.xcodeproj
 
 dev+lcp: LCP_URL = $(shell read -p "Enter the liblcp Carthage URL you received from EDRLab: " url; echo $$url)
 dev+lcp: clean
+	git submodule update --init --recursive
 	@echo "binary \"${LCP_URL}\"" > Cartfile
 	carthage update --platform ios --cache-builds
 	@cp Integrations/Submodules/project+lcp.yml project.yml

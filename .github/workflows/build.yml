@@ -1,0 +1,71 @@
+name: R2TestApp
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+env:
+  platform: ${{ 'iOS Simulator' }}
+
+jobs:
+  spm:
+    name: Integration with SPM
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: brew install xcodegen
+      - name: Generate project
+        run: make spm
+      - name: Build
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}'`
+          xcodebuild build -scheme R2TestApp -destination "platform=$platform,name=$device"
+
+  carthage:
+    name: Integration with Carthage
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: brew install xcodegen carthage
+      - name: Generate project
+        run: make carthage
+      - name: Build
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}'`
+          xcodebuild build -scheme R2TestApp -destination "platform=$platform,name=$device"
+
+  cocoapods:
+    name: Integration with CocoaPods
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: brew install xcodegen cocoapods
+      - name: Generate project
+        run: make cocoapods
+      - name: Build
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}'`
+          xcodebuild build -scheme R2TestApp -destination "platform=$platform,name=$device"
+
+  dev:
+    name: Integration with submodules
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: brew install xcodegen
+      - name: Generate project
+        run: make dev
+      - name: Build
+        run: |
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}'`
+          xcodebuild build -scheme R2TestApp -destination "platform=$platform,name=$device"
