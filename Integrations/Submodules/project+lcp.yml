@@ -10,6 +10,8 @@ packages:
     path: Integrations/Submodules/r2-navigator-swift
   ReadiumOPDS:
     path: Integrations/Submodules/r2-opds-swift
+  ReadiumLCP:
+    path: Integrations/Submodules/r2-lcp-swift
   Kingfisher:
     url: https://github.com/onevcat/Kingfisher.git
     from: 5.15.8
@@ -34,11 +36,15 @@ targets:
       - path: Sources/Resources/Samples
         type: folder
     dependencies:
+      - carthage: R2LCPClient
       - package: R2Shared
       - package: R2Streamer
       - package: R2Navigator
       - package: ReadiumOPDS
+      - package: ReadiumLCP
       - package: Kingfisher
       - package: MBProgressHUD
       - package: SwiftSoup
       - package: SQLite
+    settings:
+      OTHER_SWIFT_FLAGS: -DLCP

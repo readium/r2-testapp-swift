@@ -2,12 +2,13 @@ help:
 	@echo "Usage: make <target>\n\n\
 Choose one of the following targets to generate:\n\
   spm\t\t(recommended) Integration with Swift Package Manager\n\
-  spm+lcp\t(recommended) Integration with Swift Package Manager and Readium LCP\n\
+  spm+lcp\t(recommended) Integration with Swift Package Manager with Readium LCP\n\
   carthage\tIntegration with Carthage\n\
-  carthage+lcp\tIntegration with Carthage and Readium LCP\n\
-  cocoapods\tIntegration with CocoaPods and Readium LCP\n\
-  cocoapods+lcp\tIntegration with CocoaPods and Readium LCP\n\
-  submodules\tIntegration with Git submodules and SPM, for contributors\n\
+  carthage+lcp\tIntegration with Carthage with Readium LCP\n\
+  cocoapods\tIntegration with CocoaPods\n\
+  cocoapods+lcp\tIntegration with CocoaPods with Readium LCP\n\
+  dev\t\tIntegration with Git submodules and SPM, for contributors\n\
+  dev+lcp\tIntegration with Git submodules and SPM with Readium LCP, for contributors\n\
 "
 
 clean:
@@ -65,3 +66,15 @@ cocoapods+lcp: clean
 	pod install
 	open R2TestApp.xcworkspace
 
+dev: clean
+	cp Integrations/Submodules/project.yml .
+	xcodegen generate
+	open R2TestApp.xcodeproj
+
+dev+lcp: LCP_URL = $(shell read -p "Enter the liblcp Carthage URL you received from EDRLab: " url; echo $$url)
+dev+lcp: clean
+	@echo "binary \"${LCP_URL}\"" > Cartfile
+	carthage update --platform ios --cache-builds
+	@cp Integrations/Submodules/project+lcp.yml project.yml
+	xcodegen generate
+	open R2TestApp.xcodeproj
