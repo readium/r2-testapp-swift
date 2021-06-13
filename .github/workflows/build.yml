@@ -1,6 +1,7 @@
-name: R2TestApp
+name: Build
 
 on:
+  workflow_dispatch:
   push:
     branches: [ develop ]
   pull_request:
