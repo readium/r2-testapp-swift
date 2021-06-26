@@ -40,7 +40,7 @@ This project shows how to use Readium 2 with several dependency managers: Swift 
     git clone https://github.com/readium/r2-testapp-swift.git
     cd r2-testapp-swift
     ```
-4. Generate the Xcode project using our `Makefile` and your target of choice. Xcode will automatically open the project after fetching all the dependencies.
+4. Generate the Xcode project using our `Makefile` and your target of choice. This will download all dependencies automatically.
     ```sh
     make spm
     ```

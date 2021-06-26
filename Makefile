@@ -27,7 +27,7 @@ else
 	@cp Integrations/SPM/project.yml .
 endif
 	xcodegen generate
-	open R2TestApp.xcodeproj
+	@echo "\nopen R2TestApp.xcodeproj"
 
 carthage: clean
 ifdef lcp
@@ -40,7 +40,7 @@ else
 endif
 	carthage update --platform ios --use-xcframeworks --cache-builds
 	xcodegen generate
-	open R2TestApp.xcodeproj
+	@echo "\nopen R2TestApp.xcodeproj"
 
 cocoapods: clean
 ifdef lcp
@@ -52,7 +52,7 @@ else
 endif
 	xcodegen generate
 	pod install
-	open R2TestApp.xcworkspace
+	@echo "\nopen R2TestApp.xcworkspace"
 
 dev: clean
 ifdef lcp
@@ -64,4 +64,4 @@ else
 endif
 	git submodule update --init --recursive
 	xcodegen generate
-	open R2TestApp.xcodeproj
+	@echo "\nopen R2TestApp.xcodeproj"
