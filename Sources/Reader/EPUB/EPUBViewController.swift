@@ -20,7 +20,24 @@ class EPUBViewController: ReaderViewController {
     var userSettingNavigationController: UserSettingsNavigationController
 
     init(publication: Publication, book: Book, resourcesServer: ResourcesServer) {
-        let navigator = EPUBNavigatorViewController(publication: publication, initialLocation: book.progressionLocator, resourcesServer: resourcesServer)
+        let navigator = EPUBNavigatorViewController(
+            publication: publication,
+            initialLocation: book.progressionLocator,
+            resourcesServer: resourcesServer,
+            config: .init(
+                editingActions: [
+                    .copy,
+                    EditingAction(title: "Highlight", action: #selector(highlight)),
+                    EditingAction(title: "Underline", action: #selector(underline)),
+                    EditingAction(title: "Sidemark", action: #selector(sidemark)),
+                    EditingAction(title: "Image", action: #selector(image)),
+                ],
+                decorationStyles: HTMLDecorationTemplate.defaultStyles().merging([
+                    Decoration.Style.Id.sidemark: HTMLDecorationTemplate.sidemark(),
+                    Decoration.Style.Id.image: HTMLDecorationTemplate.image(),
+                ], uniquingKeysWith: { $1 })
+            )
+        )
 
         let settingsStoryboard = UIStoryboard(name: "UserSettings", bundle: nil)
         userSettingNavigationController = settingsStoryboard.instantiateViewController(withIdentifier: "UserSettingsNavigationController") as! UserSettingsNavigationController
@@ -33,7 +50,41 @@ class EPUBViewController: ReaderViewController {
         
         navigator.delegate = self
     }
-    
+
+    private var highlights: [Decoration] = []
+    private var randomTintColor: UIColor { [.red, .blue, .green, .orange].randomElement()! }
+
+    @objc func highlight(_ sender: Any) {
+        decorateSelection(with: .highlight(tint: randomTintColor))
+    }
+
+    @objc func underline(_ sender: Any) {
+        decorateSelection(with: .underline(tint: randomTintColor))
+    }
+
+    @objc func sidemark(_ sender: Any) {
+        decorateSelection(with: .sidemark(tint: randomTintColor))
+    }
+
+    @objc func image(_ sender: Any) {
+        decorateSelection(with: .image(UIImage(named: "bookmark")))
+    }
+
+    func decorateSelection(with style: Decoration.Style) {
+        guard let selection = epubNavigator.currentSelection else {
+            return
+        }
+
+        highlights.append(Decoration(
+            id: UUID().uuidString,
+            locator: selection.locator,
+            style: style
+        ))
+
+        epubNavigator.clearSelection()
+        epubNavigator.apply(decorations: highlights, in: "highlights")
+    }
+
     var epubNavigator: EPUBNavigatorViewController {
         return navigator as! EPUBNavigatorViewController
     }
