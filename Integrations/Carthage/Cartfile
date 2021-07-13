@@ -5,7 +5,7 @@ github "stephencelis/SQLite.swift" ~> 0.12.2
 github "scinfu/SwiftSoup" ~> 2.3.2
 
 # Readium 2 dependencies
-github "readium/r2-shared-swift" "carthage-xcodegen"
-github "readium/r2-streamer-swift" "carthage-xcodegen"
-github "readium/r2-navigator-swift" "carthage-xcodegen"
-github "readium/r2-opds-swift" "carthage-xcodegen"
+github "readium/r2-shared-swift" "develop"
+github "readium/r2-streamer-swift" "develop"
+github "readium/r2-navigator-swift" "develop"
+github "readium/r2-opds-swift" "develop"
