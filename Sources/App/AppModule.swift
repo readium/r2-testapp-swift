@@ -10,6 +10,7 @@
 //  LICENSE file present in the project repository where this source code is maintained.
 //
 
+import Combine
 import Foundation
 import UIKit
 import R2Shared
@@ -40,14 +41,18 @@ final class AppModule {
             fatalError("Can't start publication server")
         }
         
-        library = LibraryModule(delegate: self, server: server)
-        reader = ReaderModule(delegate: self, resourcesServer: server)
+        let httpClient = DefaultHTTPClient()
+        let db = try Database(file: Paths.library.appendingPathComponent("database"))
+        let books = BookRepository(db: db)
+        
+        library = LibraryModule(delegate: self, books: books, server: server, httpClient: httpClient)
+        reader = ReaderModule(delegate: self, books: books, resourcesServer: server)
         opds = OPDSModule(delegate: self)
         
         // Set Readium 2's logging minimum level.
         R2EnableLog(withMinimumSeverityLevel: .debug)
         
-        try library.preloadSamples()
+        library.preloadSamples()
     }
     
     private(set) lazy var aboutViewController: UIViewController = {
@@ -95,15 +100,12 @@ extension AppModule: ReaderModuleDelegate {
 
 extension AppModule: OPDSModuleDelegate {
     
-    func opdsDownloadPublication(_ publication: Publication?, at link: Link, sender: UIViewController, completion: @escaping (CancellableResult<Book, Error>) -> ()) {
+    func opdsDownloadPublication(_ publication: Publication?, at link: Link, sender: UIViewController) -> AnyPublisher<Book, LibraryError> {
         guard let url = link.url(relativeTo: publication?.baseURL) else {
-            completion(.cancelled)
-            return
+            return .fail(.cancelled)
         }
         
-        library.importPublication(from: url, title: publication?.metadata.title, sender: sender) {
-            completion($0.eraseToAnyError())
-        }
+        return library.importPublication(from: url, sender: sender)
     }
 
 }

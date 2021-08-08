@@ -20,7 +20,6 @@ protocol OutlineTableViewControllerFactory {
 
 protocol OutlineTableViewControllerDelegate: AnyObject {
     
-    var bookmarksDataSource: BookmarkDataSource? { get }
     func outline(_ outlineTableViewController: OutlineTableViewController, goTo location: Locator)
 
 }
@@ -36,10 +35,6 @@ final class OutlineTableViewController: UITableViewController {
   
     // Outlines (list of links) to display for each section.
     private var outlines: [Section: [(level: Int, link: Link)]] = [:]
-
-    var bookmarksDataSource: BookmarkDataSource? {
-        return delegate?.bookmarksDataSource
-    }
 
     @IBOutlet weak var segments: UISegmentedControl!
     @IBAction func segmentChanged(_ sender: Any) {
@@ -80,10 +75,10 @@ final class OutlineTableViewController: UITableViewController {
     func locator(at indexPath: IndexPath) -> Locator? {
         switch section {
         case .bookmarks:
-            guard let bookmark = bookmarksDataSource?.bookmark(at: indexPath.row) else {
+//            guard let bookmark = bookmarksDataSource?.bookmark(at: indexPath.row) else {
                 return nil
-            }
-            return bookmark.locator
+//            }
+//            return bookmark.locator
 
         default:
             guard let outline = outlines[section],
@@ -126,19 +121,19 @@ final class OutlineTableViewController: UITableViewController {
                 return BookmarkCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: kBookmarkCell)
             } ()
             
-            if let bookmark = bookmarksDataSource?.bookmark(at: indexPath.item) {
-                cell.textLabel?.text = bookmark.locator.title
-                cell.formattedDate = bookmark.creationDate
-                cell.detailTextLabel?.text = {
-                    if let position = bookmark.locator.locations.position {
-                        return String(format: NSLocalizedString("reader_outline_position_label", comment: "Outline bookmark label when the position is available"), position)
-                    } else if let progression = bookmark.locator.locations.progression {
-                        return String(format: NSLocalizedString("reader_outline_progression_label", comment: "Outline bookmark label when the progression is available"), progression * 100)
-                    } else {
-                        return nil
-                    }
-                }()
-            }
+//            if let bookmark = bookmarksDataSource?.bookmark(at: indexPath.item) {
+//                cell.textLabel?.text = bookmark.locator.title
+//                cell.formattedDate = bookmark.creationDate
+//                cell.detailTextLabel?.text = {
+//                    if let position = bookmark.locator.locations.position {
+//                        return String(format: NSLocalizedString("reader_outline_position_label", comment: "Outline bookmark label when the position is available"), position)
+//                    } else if let progression = bookmark.locator.locations.progression {
+//                        return String(format: NSLocalizedString("reader_outline_progression_label", comment: "Outline bookmark label when the progression is available"), progression * 100)
+//                    } else {
+//                        return nil
+//                    }
+//                }()
+//            }
             return cell
             
         default:
@@ -155,8 +150,8 @@ final class OutlineTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection tableSection: Int) -> Int {
         switch section {
-        case .bookmarks:
-            return bookmarksDataSource?.count ?? 0
+//        case .bookmarks:
+//            return bookmarksDataSource?.count ?? 0
         default:
             return outlines[section]?.count ?? 0
         }
@@ -181,9 +176,9 @@ final class OutlineTableViewController: UITableViewController {
         switch section {
         case .bookmarks:
             if editingStyle == .delete {
-                if (self.bookmarksDataSource?.removeBookmark(index: indexPath.item) ?? false) {
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                }
+//                if (self.bookmarksDataSource?.removeBookmark(index: indexPath.item) ?? false) {
+//                    tableView.deleteRows(at: [indexPath], with: .fade)
+//                }
             }
             
         default:

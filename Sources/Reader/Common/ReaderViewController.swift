@@ -10,6 +10,7 @@
 //  LICENSE file present in the project repository where this source code is maintained.
 //
 
+import Combine
 import SafariServices
 import UIKit
 import R2Navigator
@@ -25,12 +26,12 @@ class ReaderViewController: UIViewController, Loggable {
     
     let navigator: UIViewController & Navigator
     let publication: Publication
-    let book: Book
+    let bookId: Book.Id
+    private let books: BookRepository
 
-    lazy var bookmarksDataSource: BookmarkDataSource? = BookmarkDataSource(bookID: book.id)
-    
     private(set) var stackView: UIStackView!
     private lazy var positionLabel = UILabel()
+    private var subscriptions = Set<AnyCancellable>()
     
     /// This regex matches any string with at least 2 consecutive letters (not limited to ASCII).
     /// It's used when evaluating whether to display the body of a noteref referrer as the note's title.
@@ -39,14 +40,15 @@ class ReaderViewController: UIViewController, Loggable {
         return try! NSRegularExpression(pattern: "[\\p{Ll}\\p{Lu}\\p{Lt}\\p{Lo}]{2}")
     }()
     
-    init(navigator: UIViewController & Navigator, publication: Publication, book: Book) {
+    init(navigator: UIViewController & Navigator, publication: Publication, bookId: Book.Id, books: BookRepository) {
         self.navigator = navigator
         self.publication = publication
-        self.book = book
+        self.bookId = bookId
+        self.books = books
 
         super.init(nibName: nil, bundle: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(voiceOverStatusDidChange), name: Notification.Name(UIAccessibilityVoiceOverStatusChanged), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(voiceOverStatusDidChange), name: UIAccessibility.voiceOverStatusDidChangeNotification, object: nil)
     }
 
     @available(*, unavailable)
@@ -163,14 +165,14 @@ class ReaderViewController: UIViewController, Loggable {
     // MARK: - Bookmarks
     
     @objc func bookmarkCurrentPosition() {
-        guard let dataSource = bookmarksDataSource,
-            let bookmark = currentBookmark,
-            dataSource.addBookmark(bookmark: bookmark) else
-        {
-            toast(NSLocalizedString("reader_bookmark_failure_message", comment: "Error message when adding a new bookmark failed"), on: view, duration: 2)
-            return
-        }
-        toast(NSLocalizedString("reader_bookmark_success_message", comment: "Success message when adding a bookmark"), on: view, duration: 1)
+//        guard let dataSource = bookmarksDataSource,
+//            let bookmark = currentBookmark,
+//            dataSource.addBookmark(bookmark: bookmark) else
+//        {
+//            toast(NSLocalizedString("reader_bookmark_failure_message", comment: "Error message when adding a new bookmark failed"), on: view, duration: 2)
+//            return
+//        }
+//        toast(NSLocalizedString("reader_bookmark_success_message", comment: "Success message when adding a bookmark"), on: view, duration: 1)
     }
     
     
@@ -245,11 +247,13 @@ class ReaderViewController: UIViewController, Loggable {
 extension ReaderViewController: NavigatorDelegate {
 
     func navigator(_ navigator: Navigator, locationDidChange locator: Locator) {
-        do {
-            try BooksDatabase.shared.books.saveProgression(locator, of: book)
-        } catch {
-            log(.error, error)
-        }
+        books.saveProgress(for: bookId, locator: locator)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    self.moduleDelegate?.presentError(error, from: self)
+                }
+            } receiveValue: { _ in }
+            .store(in: &subscriptions)
 
         positionLabel.text = {
             if let position = locator.locations.position {

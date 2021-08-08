@@ -24,7 +24,7 @@ protocol ReaderFormatModule {
     var publicationFormats: [Publication.Format] { get }
     
     /// Creates the view controller to present the publication.
-    func makeReaderViewController(for publication: Publication, book: Book, resourcesServer: ResourcesServer) throws -> UIViewController
+    func makeReaderViewController(for publication: Publication, locator: Locator?, bookId: Book.Id, books: BookRepository, resourcesServer: ResourcesServer) throws -> UIViewController
     
 }
 

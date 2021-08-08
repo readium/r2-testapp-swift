@@ -34,6 +34,7 @@ protocol ReaderModuleDelegate: ModuleDelegate {
 final class ReaderModule: ReaderModuleAPI {
     
     weak var delegate: ReaderModuleDelegate?
+    private let books: BookRepository
     private let resourcesServer: ResourcesServer
     
     /// Sub-modules to handle different publication formats (eg. EPUB, CBZ)
@@ -41,8 +42,9 @@ final class ReaderModule: ReaderModuleAPI {
     
     private let factory = ReaderFactory()
     
-    init(delegate: ReaderModuleDelegate?, resourcesServer: ResourcesServer) {
+    init(delegate: ReaderModuleDelegate?, books: BookRepository, resourcesServer: ResourcesServer) {
         self.delegate = delegate
+        self.books = books
         self.resourcesServer = resourcesServer
         
         formatModules = [
@@ -56,7 +58,7 @@ final class ReaderModule: ReaderModuleAPI {
     }
     
     func presentPublication(publication: Publication, book: Book, in navigationController: UINavigationController, completion: @escaping () -> Void) {
-        guard let delegate = delegate else {
+        guard let delegate = delegate, let bookId = book.id else {
             fatalError("Reader delegate not set")
         }
         
@@ -75,7 +77,7 @@ final class ReaderModule: ReaderModuleAPI {
         }
 
         do {
-            let readerViewController = try module.makeReaderViewController(for: publication, book: book, resourcesServer: resourcesServer)
+            let readerViewController = try module.makeReaderViewController(for: publication, locator: book.locator, bookId: bookId, books: books, resourcesServer: resourcesServer)
             present(readerViewController)
         } catch {
             delegate.presentError(error, from: navigationController)
