@@ -12,7 +12,7 @@ import R2Shared
 struct Book: Codable {
     struct Id: EntityId { let rawValue: Int64 }
     
-    var id: Id?
+    let id: Id?
     /// Canonical identifier for the publication, extracted from its metadata.
     var identifier: String?
     /// Title of the publication, extracted from its metadata.
@@ -26,7 +26,9 @@ struct Book: Codable {
     /// Location of the cover.
     var coverPath: String?
     /// Last read location in the publication.
-    var locator: Locator?
+    var locator: Locator? {
+        didSet { progression = locator?.locations.totalProgression ?? 0 }
+    }
     /// Current progression in the publication, extracted from the locator.
     var progression: Double
     /// Date of creation.
@@ -50,13 +52,9 @@ struct Book: Codable {
     }
 }
 
-extension Book: TableRecord, FetchableRecord, MutablePersistableRecord {
+extension Book: TableRecord, FetchableRecord, PersistableRecord {
     enum Columns: String, ColumnExpression {
         case id, identifier, title, type, path, coverPath, locator, progression, created
-    }
-    
-    mutating func didInsert(with rowID: Int64, for column: String?) {
-        id = Id(rawValue: rowID)
     }
 }
 
@@ -73,11 +71,11 @@ final class BookRepository {
         }
     }
     
-    func add(_ book: Book) -> AnyPublisher<Book, Error> {
-        var book = book
-        return db.write { db in try book.insert(db) }
-            .map { book }
-            .eraseToAnyPublisher()
+    func add(_ book: Book) -> AnyPublisher<Book.Id, Error> {
+        return db.write { db in
+            try book.insert(db)
+            return Book.Id(rawValue: db.lastInsertedRowID)
+        }.eraseToAnyPublisher()
     }
     
     func remove(_ id: Book.Id) -> AnyPublisher<Void, Error> {

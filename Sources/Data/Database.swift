@@ -30,7 +30,15 @@ final class Database {
                 t.column("coverPath", .text)
                 t.column("locator", .text)
                 t.column("progression", .integer).notNull().defaults(to: 0)
-                t.column("created", .datetime)
+                t.column("created", .datetime).notNull()
+            }
+            
+            try db.create(table: "bookmark", ifNotExists: true) { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("bookId", .integer).references("book", onDelete: .cascade).notNull()
+                t.column("locator", .text)
+                t.column("progression", .double).notNull()
+                t.column("created", .datetime).notNull()
             }
         }
     }

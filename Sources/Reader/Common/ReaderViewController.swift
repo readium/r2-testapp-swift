@@ -28,6 +28,7 @@ class ReaderViewController: UIViewController, Loggable {
     let publication: Publication
     let bookId: Book.Id
     private let books: BookRepository
+    private let bookmarks: BookmarkRepository
 
     private(set) var stackView: UIStackView!
     private lazy var positionLabel = UILabel()
@@ -40,11 +41,12 @@ class ReaderViewController: UIViewController, Loggable {
         return try! NSRegularExpression(pattern: "[\\p{Ll}\\p{Lu}\\p{Lt}\\p{Lo}]{2}")
     }()
     
-    init(navigator: UIViewController & Navigator, publication: Publication, bookId: Book.Id, books: BookRepository) {
+    init(navigator: UIViewController & Navigator, publication: Publication, bookId: Book.Id, books: BookRepository, bookmarks: BookmarkRepository) {
         self.navigator = navigator
         self.publication = publication
         self.bookId = bookId
         self.books = books
+        self.bookmarks = bookmarks
 
         super.init(nibName: nil, bundle: nil)
         
@@ -158,21 +160,28 @@ class ReaderViewController: UIViewController, Loggable {
     // MARK: - Outlines
 
     @objc func presentOutline() {
-        moduleDelegate?.presentOutline(of: publication, delegate: self, from: self)
+        moduleDelegate?.presentOutline(of: publication, bookId: bookId, delegate: self, from: self)
     }
     
     
     // MARK: - Bookmarks
     
     @objc func bookmarkCurrentPosition() {
-//        guard let dataSource = bookmarksDataSource,
-//            let bookmark = currentBookmark,
-//            dataSource.addBookmark(bookmark: bookmark) else
-//        {
-//            toast(NSLocalizedString("reader_bookmark_failure_message", comment: "Error message when adding a new bookmark failed"), on: view, duration: 2)
-//            return
-//        }
-//        toast(NSLocalizedString("reader_bookmark_success_message", comment: "Success message when adding a bookmark"), on: view, duration: 1)
+        guard let bookmark = currentBookmark else {
+            return
+        }
+        
+        bookmarks.add(bookmark)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    toast(NSLocalizedString("reader_bookmark_success_message", comment: "Success message when adding a bookmark"), on: self.view, duration: 1)
+                case .failure(let error):
+                    print(error)
+                    toast(NSLocalizedString("reader_bookmark_failure_message", comment: "Error message when adding a new bookmark failed"), on: self.view, duration: 2)
+                }
+            } receiveValue: { _ in }
+            .store(in: &subscriptions)
     }
     
     

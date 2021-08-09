@@ -242,6 +242,7 @@ final class LibraryService: Loggable {
         )
         
         return books.add(book)
+            .map { _ in book }
             .mapError { LibraryError.importFailed($0) }
             .eraseToAnyPublisher()
     }
