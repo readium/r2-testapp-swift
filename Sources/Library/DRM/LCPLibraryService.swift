@@ -29,24 +29,26 @@ class LCPLibraryService: DRMLibraryService {
         return file.pathExtension.lowercased() == "lcpl"
     }
     
-    func fulfill(_ file: URL) -> AnyPublisher<DRMFulfilledPublication, Error> {
+    func fulfill(_ file: URL) -> AnyPublisher<DRMFulfilledPublication?, Error> {
         Future { promise in
             self.lcpService.acquirePublication(from: file) { result in
                 // Removes the license file, but only if it's in the App directory (e.g. Inbox/).
                 // Otherwise we might delete something from a shared location (e.g. iCloud).
-                if Paths.isAppFile(at: url) {
+                if Paths.isAppFile(at: file) {
                     try? FileManager.default.removeItem(at: file)
                 }
                 
-                promise(result
-                    .map {
-                        DRMFulfilledPublication(
-                            localURL: $0.localURL,
-                            suggestedFilename: $0.suggestedFilename
-                        )
-                    }
-                    .eraseToAnyError()
-                )
+                switch result {
+                case .success(let pub):
+                    promise(.success(DRMFulfilledPublication(
+                        localURL: pub.localURL,
+                        suggestedFilename: pub.suggestedFilename
+                    )))
+                case .failure(let error):
+                    promise(.failure(error))
+                case .cancelled:
+                    promise(.success(nil))
+                }
             }
         }.eraseToAnyPublisher()
     }

@@ -171,8 +171,13 @@ final class LibraryService: Loggable {
         }
         
         return drmService.fulfill(url)
-            .map { $0.localURL }
-            .mapError { .downloadFailed($0) }
+            .mapError { LibraryError.downloadFailed($0) }
+            .flatMap { pub -> AnyPublisher<URL, LibraryError> in
+                guard let url = pub?.localURL else {
+                    return .fail(.cancelled)
+                }
+                return .just(url)
+            }
             .eraseToAnyPublisher()
     }
     

@@ -35,8 +35,6 @@ enum LibraryError: LocalizedError {
             return String(format: NSLocalizedString("library_error_openFailed", comment: "Error message used when a low-level error occured while opening a publication"), error.localizedDescription)
         case .downloadFailed(let error):
             return String(format: NSLocalizedString("library_error_downloadFailed", comment: "Error message when the download of a publication failed"), error.localizedDescription)
-        case .cancelled:
-            return nil
         default:
             return nil
         }
