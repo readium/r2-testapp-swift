@@ -7,16 +7,16 @@ packages:
     from: 2.2.0
   R2Streamer:
     url: https://github.com/readium/r2-streamer-swift.git
-    branch: 2.2.0
+    from: 2.2.0
   R2Navigator:
     url: https://github.com/readium/r2-navigator-swift.git
-    branch: 2.2.0
+    from: 2.2.0
   ReadiumOPDS:
     url: https://github.com/readium/r2-opds-swift.git
-    branch: 2.2.0
+    from: 2.2.0
   ReadiumLCP:
     url: https://github.com/readium/r2-lcp-swift.git
-    branch: 2.2.0
+    from: 2.2.0
   GRDB:
     url: https://github.com/groue/GRDB.swift.git
     from: 5.8.0
