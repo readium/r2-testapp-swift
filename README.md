@@ -1,3 +1,7 @@
+> **:warning: ᴛʜɪs ʀᴇᴘᴏsɪᴛᴏʀʏ ɪs ᴅᴇᴘʀᴇᴄᴀᴛᴇᴅ :warning:**
+>
+> We moved all the `r2-*-swift` modules to a single repository: [`swift-toolkit`](https://github.com/readium/swift-toolkit).
+
 # Readium Mobile Test App (Swift/iOS)
 
 [![BSD-3](https://img.shields.io/badge/License-BSD--3-brightgreen.svg)](https://opensource.org/licenses/BSD-3-Clause)
